@@ -18,7 +18,14 @@ class App extends Component {
 
     fetch("https://jsonplaceholder.typicode.com/users")
       .then(res => res.json())
-      .then(users => this.setState({monsters:users}))
+      .then(users => this.setState({monsters: users}))
+  }
+
+  handleChange = (e) => {
+    let searchField = e.target.value.toLowerCase();
+    this.setState(() => {
+      return { searchField }
+    })
   }
 
   filteredMonsters() {
@@ -37,7 +44,7 @@ class App extends Component {
       <input className='search-box' 
              type='search' 
              placeholder='search monster' 
-             onChange={(e) => this.setState({searchField: e.target.value.toLowerCase()})}
+             onChange={this.handleChange}
       />
         {this.filteredMonsters().map(monster => <div key={monster.id}><h2>{monster.name}</h2></div>)}
       </div>
