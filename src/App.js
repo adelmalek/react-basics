@@ -39,6 +39,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <h1 className="title">Monsters Rolodex</h1>
         <SearchBox 
           handleChange={this.handleChange}
           className='monsters-search-box'
