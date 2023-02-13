@@ -1,6 +1,14 @@
 import './search-box.css';
 
-const SearchBox = ({ handleChange, className, placeholder }) => {
+import { ChangeEventHandler } from 'react';
+
+type SearchBoxProps = {
+    className: string,
+    placeholder?: string,
+    handleChange: ChangeEventHandler<HTMLInputElement>
+};
+
+const SearchBox = ({ handleChange, className, placeholder }: SearchBoxProps) => {
     return (
         <input 
             className={`search-box ${className}`}
@@ -9,7 +17,7 @@ const SearchBox = ({ handleChange, className, placeholder }) => {
             onChange={handleChange}
         />
     )
-}
+};
 
 export default SearchBox;
 
